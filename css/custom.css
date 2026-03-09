@@ -1,0 +1,81 @@
+/* 폰트 및 베이스 스타일 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+    --primary-color: #2d3436;
+    --accent-color: #0984e3;
+    --section-padding: 120px; /* 섹션 간격 통일 */
+}
+
+* {
+    box-sizing: border-box; /* 사이즈 어긋남 방지 */
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    color: var(--primary-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+/* 네비게이션 바 높이 고정 및 블러 효과 */
+.navbar {
+    height: 70px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(45, 52, 54, 0.98) !important;
+}
+
+/* 섹션 높이 및 정렬 최적화 */
+section {
+    padding: var(--section-padding) 0;
+    scroll-margin-top: 70px; /* JS와 맞춘 스크롤 위치 */
+}
+
+/* Hero 섹션 - 화면 꽉 차게 조절 */
+#home {
+    min-height: calc(100vh - 70px); /* 네비 높이 제외한 전체 화면 */
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 0; /* 내부 row에서 조절 */
+}
+
+/* 카드 크기 통일 */
+.project-card {
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-radius: 16px !important;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* 이미지 비율 고정 */
+.profile-img-wrapper img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 뱃지 및 버튼 정렬 */
+.badge-custom {
+    display: inline-block;
+    background: #eee;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    margin: 4px 2px;
+}
+
+/* 반응형 사이즈 보정 */
+@media (max-width: 768px) {
+    :root { --section-padding: 80px; }
+    .display-3 { font-size: 2.5rem; }
+    #home { text-align: center; }
+}
